@@ -4,11 +4,8 @@ extern crate afl;
 #[macro_use]
 extern crate lazy_static;
 
-#[cfg(not(feature = "delay"))]
-fn delay() {}
-
-#[cfg(feature = "delay")]
 fn delay() {
+    #[cfg(feature = "delay")]
     std::thread::sleep(std::time::Duration::from_millis(500));
 }
 
