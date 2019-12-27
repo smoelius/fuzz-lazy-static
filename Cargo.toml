@@ -1,0 +1,13 @@
+[package]
+name = "fuzz_lazy_static"
+version = "0.1.0"
+authors = ["nobody <nobody@nowhere>"]
+edition = "2018"
+
+[dependencies]
+afl = { version = "0.5.2" }
+lazy_static = { git = "https://github.com/smoelius/lazy-static.rs" }
+
+[features]
+delay = []
+reset = []
