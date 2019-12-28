@@ -1,7 +1,8 @@
 # fuzz-lazy-static
 
-This is a demonstration that (1) using AFL in persistent mode to fuzz a program with `lazy_static`
-variables causes problems, and (2) adding a `reset` function to `lazy_static` addresses those problems.
+This is a demonstration that (1) using AFL in persistent mode to fuzz a program with
+[`lazy_static`](https://github.com/rust-lang-nursery/lazy-static.rs) variables causes problems, and (2)
+adding a `reset` function to `lazy_static` addresses those problems.
 
 * Try `cargo afl build && make fuzz` and notice AFL's abismallly low stability reports.  Then try
 `cargo afl build --features=reset && make fuzz` and notice how the stability reports are close to 100%.
