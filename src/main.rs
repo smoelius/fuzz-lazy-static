@@ -1,8 +1,13 @@
 #[macro_use]
 extern crate afl;
 
+#[cfg(not(feature = "reset"))]
 #[macro_use]
 extern crate lazy_static;
+
+#[cfg(feature = "reset")]
+#[macro_use]
+extern crate resettable_lazy_static;
 
 fn delay() {
     #[cfg(feature = "delay")]
@@ -35,7 +40,7 @@ fn main() {
         }
         #[cfg(feature = "reset")]
         unsafe {
-            lazy_static::lazy::reset();
+            resettable_lazy_static::lazy::reset();
         }
     });
 }
