@@ -1,13 +1,5 @@
-#[macro_use]
-extern crate afl;
-
-#[cfg(not(feature = "reset"))]
-#[macro_use]
-extern crate lazy_static;
-
-#[cfg(feature = "reset")]
-#[macro_use]
-extern crate resettable_lazy_static;
+use afl::*;
+use lazy_static::lazy_static;
 
 fn delay() {
     #[cfg(feature = "delay")]
@@ -38,9 +30,9 @@ fn main() {
                 _ => println!("{}", *BAZ),
             }
         }
-        #[cfg(feature = "reset")]
-        unsafe {
-            resettable_lazy_static::lazy::reset();
+        if data.len() > 3 {
+            #[cfg(feature = "panic")]
+            panic!("Oh no!");
         }
     });
 }
