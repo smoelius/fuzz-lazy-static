@@ -5,7 +5,7 @@ authors = ["nobody <nobody@nowhere>"]
 edition = "2018"
 
 [dependencies]
-afl = { git = 'https://github.com/smoelius/afl.rs' }
+afl = { git = "https://github.com/smoelius/afl.rs" }
 lazy_static = { version = "1.4.0" }
 
 [features]
@@ -14,4 +14,4 @@ panic = []
 reset = ["afl/reset_lazy_static"]
 
 [patch.crates-io]
-lazy_static = { git = 'https://github.com/rust-fuzz/resettable-lazy-static.rs' }
+lazy_static = { git = "https://github.com/rust-fuzz/resettable-lazy-static.rs" }
